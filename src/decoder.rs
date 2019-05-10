@@ -1,44 +1,44 @@
 use utils;
 
 pub trait Decoder {
-    fn before(&self, opcode: u16, addr: u16);
-    fn unknown(&self, opcode: u16, addr: u16);
-    fn clear(&self);
-    fn ret(&self);
-    fn jmp(&self, address: u16);
-    fn call(&self, address: u16);
-    fn jeq(&self, vr: u8, value: u8);
-    fn jneq(&self, vr: u8, value: u8);
-    fn jeqr(&self, vr: u8, vy: u8);
-    fn set(&self, vr: u8, value: u8);
-    fn add(&self, vr: u8, value: u8);
-    fn setr(&self, vr: u8, vy: u8);
-    fn or(&self, vr: u8, vy: u8);
-    fn and(&self, vr: u8, vy: u8);
-    fn xor(&self, vr: u8, vy: u8);
-    fn addr(&self, vr: u8, vy: u8);
-    fn sub(&self, vr: u8, vy: u8);
-    fn shr(&self, vr: u8);
-    fn subb(&self, vr: u8, vy: u8);
-    fn shl(&self, vr: u8);
-    fn jneqr(&self, vr: u8, vy: u8);
-    fn seti(&self, value: u16);
-    fn jmpv0(&self, address: u16);
-    fn rand(&self, vr: u8, value: u8);
-    fn draw(&self, vr: u8, vy: u8, value: u8);
-    fn jkey(&self, vr: u8);
-    fn jnkey(&self, vr: u8);
-    fn getdelay(&self, vr: u8);
-    fn waitkey(&self, vr: u8);
-    fn setdelay(&self, vr: u8);
-    fn setsound(&self, vr: u8);
-    fn addi(&self, vr: u8);
-    fn spritei(&self, vr: u8);
-    fn bcd(&self, vr: u8);
-    fn push(&self, vr: u8);
-    fn pop(&self, vr: u8);
+    fn before(&mut self, opcode: u16, addr: u16);
+    fn unknown(&mut self, opcode: u16, addr: u16);
+    fn clear(&mut self);
+    fn ret(&mut self);
+    fn jmp(&mut self, address: u16);
+    fn call(&mut self, address: u16);
+    fn jeq(&mut self, vr: u8, value: u8);
+    fn jneq(&mut self, vr: u8, value: u8);
+    fn jeqr(&mut self, vr: u8, vy: u8);
+    fn set(&mut self, vr: u8, value: u8);
+    fn add(&mut self, vr: u8, value: u8);
+    fn setr(&mut self, vr: u8, vy: u8);
+    fn or(&mut self, vr: u8, vy: u8);
+    fn and(&mut self, vr: u8, vy: u8);
+    fn xor(&mut self, vr: u8, vy: u8);
+    fn addr(&mut self, vr: u8, vy: u8);
+    fn sub(&mut self, vr: u8, vy: u8);
+    fn shr(&mut self, vr: u8);
+    fn subb(&mut self, vr: u8, vy: u8);
+    fn shl(&mut self, vr: u8);
+    fn jneqr(&mut self, vr: u8, vy: u8);
+    fn seti(&mut self, value: u16);
+    fn jmpv0(&mut self, address: u16);
+    fn rand(&mut self, vr: u8, value: u8);
+    fn draw(&mut self, vr: u8, vy: u8, value: u8);
+    fn jkey(&mut self, vr: u8);
+    fn jnkey(&mut self, vr: u8);
+    fn getdelay(&mut self, vr: u8);
+    fn waitkey(&mut self, vr: u8);
+    fn setdelay(&mut self, vr: u8);
+    fn setsound(&mut self, vr: u8);
+    fn addi(&mut self, vr: u8);
+    fn spritei(&mut self, vr: u8);
+    fn bcd(&mut self, vr: u8);
+    fn push(&mut self, vr: u8);
+    fn pop(&mut self, vr: u8);
 
-    fn execute(&mut self, addr: u16, msb: u8, lsb: u8) { 
+    fn decode(&mut self, addr: u16, msb: u8, lsb: u8) {
         let opcode: u16 = (msb as u16) << 8 | lsb as u16; 
         self.before(opcode, addr);
         match msb >> 4 {
@@ -92,6 +92,7 @@ pub trait Decoder {
                 0x65 => self.pop(msb & 0xF),
                 _    => self.unknown(opcode, addr),
             },
+            _   => self.unknown(opcode, addr),
         }
     }
 }

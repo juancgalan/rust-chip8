@@ -34,40 +34,40 @@ impl CPU {
 }
 
 impl decoder::Decoder for CPU {
-    fn before(&self, opcode: u16, addr: u16) { unimplemented!(); }
-    fn unknown(&self, opcode: u16, addr: u16) { unimplemented!(); }
-    fn clear(&self, ) { unimplemented!(); }
-    fn ret(&self, ) { unimplemented!(); }
-    fn jmp(&self, address: u16) { unimplemented!(); }
-    fn call(&self, address: u16) { unimplemented!(); }
-    fn jeq(&self, vr: u8, value: u8) { unimplemented!(); }
-    fn jneq(&self, vr: u8, value: u8) { unimplemented!(); }
-    fn jeqr(&self, vr: u8, vy: u8) { unimplemented!(); }
-    fn set(&self, vr: u8, value: u8) { unimplemented!(); }
-    fn add(&self, vr: u8, value: u8) { unimplemented!(); }
-    fn setr(&self, vr: u8, vy: u8) { unimplemented!(); }
-    fn or(&self, vr: u8, vy: u8) { unimplemented!(); }
-    fn and(&self, vr: u8, vy: u8) { unimplemented!(); }
-    fn xor(&self, vr: u8, vy: u8) { unimplemented!(); }
-    fn addr(&self, vr: u8, vy: u8) { unimplemented!(); }
-    fn sub(&self, vr: u8, vy: u8) { unimplemented!(); }
-    fn shr(&self, vr: u8) { unimplemented!(); }
-    fn subb(&self, vr: u8, vy: u8) { unimplemented!(); }
-    fn shl(&self, vr: u8) { unimplemented!(); }
-    fn jneqr(&self, vr: u8, vy: u8) { unimplemented!(); }
-    fn seti(&self, value: u16) { unimplemented!(); }
-    fn jmpv0(&self, address: u16) { unimplemented!(); }
-    fn rand(&self, vr: u8, value: u8) { unimplemented!(); }
-    fn draw(&self, vr: u8, vy: u8, value: u8) { unimplemented!(); }
-    fn jkey(&self, vr: u8) { unimplemented!(); }
-    fn jnkey(&self, vr: u8) { unimplemented!(); }
-    fn getdelay(&self, vr: u8) { unimplemented!(); }
-    fn waitkey(&self, vr: u8) { unimplemented!(); }
-    fn setdelay(&self, vr: u8) { unimplemented!(); }
-    fn setsound(&self, vr: u8) { unimplemented!(); }
-    fn addi(&self, vr: u8) { unimplemented!(); }
-    fn spritei(&self, vr: u8) { unimplemented!(); }
-    fn bcd(&self, vr: u8) { unimplemented!(); }
-    fn push(&self, vr: u8) { unimplemented!(); }
-    fn pop(&self, vr: u8) { unimplemented!(); }
+    fn before(&mut self, opcode: u16, addr: u16) { unimplemented!(); }
+    fn unknown(&mut self, opcode: u16, addr: u16) { unimplemented!(); }
+    fn clear(&mut self, ) { unimplemented!(); }
+    fn ret(&mut self, ) { unimplemented!(); }
+    fn jmp(&mut self, address: u16) { unimplemented!(); }
+    fn call(&mut self, address: u16) { unimplemented!(); }
+    fn jeq(&mut self, vr: u8, value: u8) { unimplemented!(); }
+    fn jneq(&mut self, vr: u8, value: u8) { unimplemented!(); }
+    fn jeqr(&mut self, vr: u8, vy: u8) { unimplemented!(); }
+    fn set(&mut self, vr: u8, value: u8) { unimplemented!(); }
+    fn add(&mut self, vr: u8, value: u8) { unimplemented!(); }
+    fn setr(&mut self, vr: u8, vy: u8) { unimplemented!(); }
+    fn or(&mut self, vr: u8, vy: u8) { unimplemented!(); }
+    fn and(&mut self, vr: u8, vy: u8) { unimplemented!(); }
+    fn xor(&mut self, vr: u8, vy: u8) { unimplemented!(); }
+    fn addr(&mut self, vr: u8, vy: u8) { unimplemented!(); }
+    fn sub(&mut self, vr: u8, vy: u8) { unimplemented!(); }
+    fn shr(&mut self, vr: u8) { unimplemented!(); }
+    fn subb(&mut self, vr: u8, vy: u8) { unimplemented!(); }
+    fn shl(&mut self, vr: u8) { unimplemented!(); }
+    fn jneqr(&mut self, vr: u8, vy: u8) { unimplemented!(); }
+    fn seti(&mut self, value: u16) { unimplemented!(); }
+    fn jmpv0(&mut self, address: u16) { unimplemented!(); }
+    fn rand(&mut self, vr: u8, value: u8) { unimplemented!(); }
+    fn draw(&mut self, vr: u8, vy: u8, value: u8) { unimplemented!(); }
+    fn jkey(&mut self, vr: u8) { unimplemented!(); }
+    fn jnkey(&mut self, vr: u8) { unimplemented!(); }
+    fn getdelay(&mut self, vr: u8) { unimplemented!(); }
+    fn waitkey(&mut self, vr: u8) { unimplemented!(); }
+    fn setdelay(&mut self, vr: u8) { unimplemented!(); }
+    fn setsound(&mut self, vr: u8) { unimplemented!(); }
+    fn addi(&mut self, vr: u8) { unimplemented!(); }
+    fn spritei(&mut self, vr: u8) { unimplemented!(); }
+    fn bcd(&mut self, vr: u8) { unimplemented!(); }
+    fn push(&mut self, vr: u8) { unimplemented!(); }
+    fn pop(&mut self, vr: u8) { unimplemented!(); }
 }

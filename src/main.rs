@@ -3,9 +3,11 @@ mod decoder;
 mod vm;
 mod disassembly;
 
-fn main() {
-    let ds = disassembly::Disassembler {
+use disassembly::Disassembler;
+use disassembly::Executable;
 
-    };
-    println!("Hello, CHIP-8!");
+fn main() {
+    let mut vmachine = Disassembler::load_file("roms//15puzzle.rom").unwrap();
+    vmachine.disassembly();
+    println!("{}", vmachine.source);
 }
